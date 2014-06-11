@@ -1,0 +1,9 @@
+D:\Visual Basic\APIs\FanartTv\bin\Debug\FanartTv.dll
+D:\Visual Basic\APIs\FanartTv\bin\Debug\FanartTv.pdb
+D:\Visual Basic\APIs\FanartTv\obj\Debug\FanartTv.csprojResolveAssemblyReference.cache
+D:\Visual Basic\APIs\FanartTv\obj\Debug\FanartTv.dll
+D:\Visual Basic\APIs\FanartTv\obj\Debug\FanartTv.pdb
+D:\Meine VBProjekte\APIs\FanartTv\bin\Debug\FanartTv.dll
+D:\Meine VBProjekte\APIs\FanartTv\bin\Debug\FanartTv.pdb
+D:\Meine VBProjekte\APIs\FanartTv\obj\Debug\FanartTv.dll
+D:\Meine VBProjekte\APIs\FanartTv\obj\Debug\FanartTv.pdb
