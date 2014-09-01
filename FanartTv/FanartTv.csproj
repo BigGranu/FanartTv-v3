@@ -37,21 +37,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API.cs" />
-    <Compile Include="Data\Albumdata.cs" />
-    <Compile Include="Data\Albums.cs" />
-    <Compile Include="Data\Art.cs" />
-    <Compile Include="Data\Image.cs" />
-    <Compile Include="Data\Moviedata.cs" />
-    <Compile Include="Data\Moviedisc.cs" />
-    <Compile Include="Data\Seasonimage.cs" />
-    <Compile Include="Data\Seriesdata.cs" />
-    <Compile Include="Movie.cs" />
-    <Compile Include="Album.cs" />
-    <Compile Include="Data\Artistdata.cs" />
-    <Compile Include="Artist.cs" />
+    <Compile Include="Helper\Json.cs" />
+    <Compile Include="Movies\Latest.cs" />
+    <Compile Include="TV\Latest.cs" />
+    <Compile Include="Types\MovieData.cs" />
+    <Compile Include="Types\MusicData.cs" />
+    <Compile Include="Movies\Movie.cs" />
+    <Compile Include="Music\Album.cs" />
+    <Compile Include="Music\Artist.cs" />
+    <Compile Include="Music\Label.cs" />
+    <Compile Include="Music\Latest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Data\Thumb.cs" />
-    <Compile Include="Series.cs" />
+    <Compile Include="TV\Show.cs" />
+    <Compile Include="Types\TvData.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
