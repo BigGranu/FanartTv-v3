@@ -22,7 +22,7 @@ namespace FanartTv.Music
     /// </summary>
     public Latest()
     {
-      List = Info(API.Key);
+      List = Info(API.Key, API.cKey);
     }
 
     /// <summary>
@@ -31,21 +31,39 @@ namespace FanartTv.Music
     /// <param name="apiKey">Users api_key</param>
     public Latest(string apiKey)
     {
-      List = Info(apiKey);
+      List = Info(apiKey, API.cKey);
+    }
+
+    /// <summary>
+    /// Get Images for Latest Artists
+    /// </summary>
+    /// <param name="apiKey">Users api_key</param>
+    /// <param name="clientKey">Users client_key</param>
+    public Latest(string apiKey, string clientKey)
+    {
+        List = Info(apiKey, clientKey);
     }
 
     /// <summary>
     /// API Result
     /// </summary>
     /// <param name="apiKey">Users api_key</param>
+    /// <param name="clientKey"></param>
     /// <returns>List of Images for Latest Artists</returns>
-    private static List<LatestArtistData> Info(string apiKey)
+    private static List<LatestArtistData> Info(string apiKey, string clientKey)
     {
       try
       {
         List<LatestArtistData> tmp;
+        API.ErrorOccurred = false;
+        API.ErrorMessage = string.Empty;
 
-        using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(Helper.Json.GetJson(API.Server + "music/latest" + "?api_key=" + apiKey))))
+        var json = clientKey != "" ? Helper.Json.GetJson(API.Server + "music/latest" + "?api_key=" + apiKey) : Helper.Json.GetJson(API.Server + "music/latest" + "?api_key=" + apiKey + "&client_key=" + clientKey);
+
+        if (API.ErrorOccurred)
+          return new List<LatestArtistData>();
+
+        using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
         {
           var settings = new DataContractJsonSerializerSettings { UseSimpleDictionaryFormat = true };
           var serializer = new DataContractJsonSerializer(typeof(List<LatestArtistData>), settings);
@@ -53,8 +71,10 @@ namespace FanartTv.Music
         }
         return tmp ?? new List<LatestArtistData>();
       }
-      catch (Exception)
+      catch (Exception ex)
       {
+        API.ErrorOccurred = true;
+        API.ErrorMessage = ex.Message;
         return new List<LatestArtistData>();
       }
     }

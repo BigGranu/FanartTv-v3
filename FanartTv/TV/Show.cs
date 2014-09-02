@@ -22,7 +22,7 @@ namespace FanartTv.TV
     /// <param name="theTvBbId">thetvdb id for the show.</param>
     public Show(string theTvBbId)
     {
-      List = Info(theTvBbId, API.Key);
+      List = Info(theTvBbId, API.Key, API.cKey);
     }
 
     /// <summary>
@@ -32,7 +32,18 @@ namespace FanartTv.TV
     /// <param name="apiKey">Users api_key</param>
     public Show(string theTvBbId, string apiKey)
     {
-      List = Info(theTvBbId, apiKey);
+      List = Info(theTvBbId, apiKey, API.cKey);
+    }
+
+    /// <summary>
+    /// Get images for a Show
+    /// </summary>
+    /// <param name="theTvBbId">thetvdb id for the show.</param>
+    /// <param name="apiKey">Users api_key</param>
+    /// <param name="clientKey">Users client_key</param>
+    public Show(string theTvBbId, string apiKey, string clientKey)
+    {
+        List = Info(theTvBbId, apiKey, clientKey);
     }
 
     /// <summary>
@@ -40,14 +51,22 @@ namespace FanartTv.TV
     /// </summary>
     /// <param name="theTvBbId">thetvdb id for the show.</param>
     /// <param name="apiKey">Users api_key</param>
+    /// <param name="clientKey">Users client_key</param>
     /// <returns>List of images for a Shows</returns>
-    private static TvData Info(string theTvBbId, string apiKey)
+    private static TvData Info(string theTvBbId, string apiKey, string clientKey)
     {
       try
       {
         TvData tmp;
+        API.ErrorOccurred = false;
+        API.ErrorMessage = string.Empty;
 
-        using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(Helper.Json.GetJson(API.Server + "tv/" + theTvBbId + "?api_key=" + apiKey))))
+        var json = clientKey != "" ? Helper.Json.GetJson(API.Server + "tv/" + theTvBbId + "?api_key=" + apiKey) : Helper.Json.GetJson(API.Server + "tv/" + theTvBbId + "?api_key=" + apiKey + "&client_key=" + clientKey);
+
+        if (API.ErrorOccurred)
+          return new TvData();
+
+        using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
         {
           var settings = new DataContractJsonSerializerSettings { UseSimpleDictionaryFormat = true };
           var serializer = new DataContractJsonSerializer(typeof(TvData), settings);
@@ -55,8 +74,10 @@ namespace FanartTv.TV
         }
         return tmp ?? new TvData();
       }
-      catch (Exception)
+      catch (Exception ex)
       {
+        API.ErrorOccurred = true;
+        API.ErrorMessage = ex.Message;
         return new TvData();
       }
     }

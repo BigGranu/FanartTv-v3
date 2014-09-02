@@ -18,6 +18,9 @@ namespace FanartTv.Helper
     {
       try
       {
+        API.ErrorOccurred = false;
+        API.ErrorMessage = string.Empty;
+
         WebRequest request = WebRequest.Create(url);
         request.Proxy = WebRequest.DefaultWebProxy;
         request.Credentials = CredentialCache.DefaultCredentials;
@@ -26,8 +29,10 @@ namespace FanartTv.Helper
         var reader = new StreamReader(response.GetResponseStream());
         return reader.ReadToEnd();
       }
-      catch (Exception)
+      catch (Exception ex)
       {
+        API.ErrorOccurred = true;
+        API.ErrorMessage = ex.Message;
         return "";
       }
     }

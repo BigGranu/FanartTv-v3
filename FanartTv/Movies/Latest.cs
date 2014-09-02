@@ -22,7 +22,7 @@ namespace FanartTv.Movies
     /// </summary>
     public Latest()
     {
-      List = Info(API.Key);
+      List = Info(API.Key, API.cKey);
     }
 
     /// <summary>
@@ -31,21 +31,39 @@ namespace FanartTv.Movies
     /// <param name="apiKey">Users api_key</param>
     public Latest(string apiKey)
     {
-      List = Info(apiKey);
+      List = Info(apiKey, API.cKey);
+    }
+
+    /// <summary>
+    /// Get images Latest Movies
+    /// </summary>
+    /// <param name="apiKey">Users api_key</param>
+    /// <param name="clientKey">Users client_key</param>
+    public Latest(string apiKey, string clientKey)
+    {
+        List = Info(apiKey, clientKey);
     }
 
     /// <summary>
     /// API Result
     /// </summary>
     /// <param name="apiKey">Users api_key</param>
+    /// <param name="clientKey">Users client_key</param>
     /// <returns>List of images for Latest Movies</returns>
-    private List<MovieLatest> Info(string apiKey)
+    private List<MovieLatest> Info(string apiKey, string clientKey)
     {
       try
       {
         List<MovieLatest> tmp;
+        API.ErrorOccurred = false;
+        API.ErrorMessage = string.Empty;
 
-        using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(Helper.Json.GetJson(API.Server + "movies/latest" + "?api_key=" + apiKey))))
+        var json = clientKey != "" ? Helper.Json.GetJson(API.Server + "movies/latest" + "?api_key=" + apiKey) : Helper.Json.GetJson(API.Server + "movies/latest" + "?api_key=" + apiKey + "&client_key=" + clientKey);
+ 
+        if (API.ErrorOccurred)
+          return new List<MovieLatest>();
+
+        using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))
         {
           var settings = new DataContractJsonSerializerSettings { UseSimpleDictionaryFormat = true };
           var serializer = new DataContractJsonSerializer(typeof(List<MovieLatest>), settings);
@@ -53,8 +71,10 @@ namespace FanartTv.Movies
         }
         return tmp ?? new List<MovieLatest>();
       }
-      catch (Exception)
+      catch (Exception ex)
       {
+        API.ErrorOccurred = true;
+        API.ErrorMessage = ex.Message;
         return new List<MovieLatest>();
       }
     }
