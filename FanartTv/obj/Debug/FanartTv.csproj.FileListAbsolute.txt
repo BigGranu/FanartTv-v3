@@ -11,4 +11,7 @@ D:\Visual Basic\APIs\FanartTv\FanartTv\bin\Debug\FanartTv.dll
 D:\Visual Basic\APIs\FanartTv\FanartTv\bin\Debug\FanartTv.pdb
 D:\Visual Basic\APIs\FanartTv\FanartTv\obj\Debug\FanartTv.dll
 D:\Visual Basic\APIs\FanartTv\FanartTv\obj\Debug\FanartTv.pdb
-D:\Visual Basic\APIs\FanartTv\FanartTv\obj\Debug\FanartTv.csprojResolveAssemblyReference.cache
+D:\Meine VBProjekte\APIs\FanartTv\FanartTv\bin\Debug\FanartTv.dll
+D:\Meine VBProjekte\APIs\FanartTv\FanartTv\bin\Debug\FanartTv.pdb
+D:\Meine VBProjekte\APIs\FanartTv\FanartTv\obj\Debug\FanartTv.dll
+D:\Meine VBProjekte\APIs\FanartTv\FanartTv\obj\Debug\FanartTv.pdb

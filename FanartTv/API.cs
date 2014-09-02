@@ -12,33 +12,20 @@
     /// </summary>
     public static string Server = "http://webservice.fanart.tv/v3/";
 
-    /// <summary>
-    /// Defined a new API
-    /// </summary>
-    /// <param name="apiKey">Your Fanart.Tv API key</param>
-    public API(string apiKey)
-    {
-      Key = apiKey;
-    }
+    private static bool _proxy;
 
     /// <summary>
-    /// Defined a new API
+    /// Transparent Proxy
     /// </summary>
-    /// <param name="apiKey">Your Fanart.Tv API key</param>
-    /// <param name="proxy">Transparent Proxy</param>
-    public API(string apiKey, bool proxy)
+    public static bool Proxy
     {
-      Key = apiKey;
-      Server = proxy ? "http://fanarttv.apiary-proxy.com/v3/" : "http://webservice.fanart.tv/v3/";
+      get { return _proxy; }
+      set
+      {
+        _proxy = value;  
+       Server = _proxy ? "http://fanarttv.apiary-proxy.com/v3/" : "http://webservice.fanart.tv/v3/";
+      }
     }
 
-    /// <summary>
-    /// Defined a new API
-    /// </summary>
-    /// <param name="proxy">Transparent Proxy</param>
-    public API(bool proxy)
-    {
-      Server = proxy ? "http://fanarttv.apiary-proxy.com/v3/" : "http://webservice.fanart.tv/v3/";
-    }
   }
 }
