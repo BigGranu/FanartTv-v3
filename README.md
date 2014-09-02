@@ -17,6 +17,7 @@ The Features are:
 	* Latest Images
 
 For an APIKey go to [FANART.TV](http://fanart.tv/get-an-api-key/)
+
 For Transparent Proxy Set Api.proxy = true
 
 Any Examples:
