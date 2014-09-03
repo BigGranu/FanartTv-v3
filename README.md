@@ -37,7 +37,7 @@ Music
  * var label = new FanartTv.Music.Label("e832b688-546b-45e3-83e5-9f8db5dcde1d");
  * var latest = new FanartTv.Music.Latest();
  * var latest = new FanartTv.Music.Latest("apikey");
- * var latest = new FanartTv.Music.Latest("apikey, clientkey");
+ * var latest = new FanartTv.Music.Latest("apikey", "clientkey");
 
 Movie
  *  var mo0 = new FanartTv.Movies.Movie("10195");
