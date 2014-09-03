@@ -50,4 +50,4 @@ TV
 
 Errorlog
  * if (FanartTv.API.ErrorOccurred)
-       Console.WriteLine(FanartTv.API.ErrorMessage);
+   Console.WriteLine(FanartTv.API.ErrorMessage);
