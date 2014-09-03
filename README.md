@@ -33,7 +33,7 @@ Examples
 
 Music
  * var album = new FanartTv.Music.Album("9ba659df-5814-32f6-b95f-02b738698e7c");
- * var artist = ew FanartTv.Music.Artist("f4a31f0a-51dd-4fa7-986d-3095c40c5ed9");
+ * var artist = new FanartTv.Music.Artist("f4a31f0a-51dd-4fa7-986d-3095c40c5ed9");
  * var label = new FanartTv.Music.Label("e832b688-546b-45e3-83e5-9f8db5dcde1d");
  * var latest = new FanartTv.Music.Latest();
  * var latest = new FanartTv.Music.Latest("apikey");
