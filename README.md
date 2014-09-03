@@ -24,7 +24,7 @@ Any Examples:
  * - Set your ClientKey
  * FanartTv.API.cKey = "your clientkey";
  * - For Transparent Proxy
- * FanartTv.Api.proxy = true
+ * FanartTv.API.proxy = true
 
 You can use the Keys also directly
  * var album = new Album("1dc4c347-a1db-32aa-b14f-bc9cc507b843", "apikey", "clientkey");
@@ -50,5 +50,4 @@ TV
 
 Errorlog
  * if (FanartTv.API.ErrorOccurred)
-   
-Console.WriteLine(FanartTv.API.ErrorMessage);
+ * Console.WriteLine(FanartTv.API.ErrorMessage);
