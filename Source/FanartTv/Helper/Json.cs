@@ -18,16 +18,16 @@ namespace FanartTv.Helper
     {
       try
       {
-        API.ErrorOccurred = false;
-        API.ErrorMessage = string.Empty;
+        //API.ErrorOccurred = false;
+        //API.ErrorMessage = string.Empty;
 
-        WebRequest request = WebRequest.Create(url);
-        request.Proxy = WebRequest.DefaultWebProxy;
-        request.Credentials = CredentialCache.DefaultCredentials;
-        request.Proxy.Credentials = CredentialCache.DefaultCredentials;
-        WebResponse response = request.GetResponse();
-        var reader = new StreamReader(response.GetResponseStream());
-        return reader.ReadToEnd();
+        //WebRequest request = WebRequest.Create(url);
+        //request.Proxy = WebRequest.DefaultWebProxy;
+        //request.Credentials = CredentialCache.DefaultCredentials;
+        //request.Proxy.Credentials = CredentialCache.DefaultCredentials;
+        //WebResponse response = request.GetResponse();
+        //var reader = new StreamReader(response.GetResponseStream());
+        //return reader.ReadToEnd();
       }
       catch (Exception ex)
       {
@@ -35,6 +35,8 @@ namespace FanartTv.Helper
         API.ErrorMessage = ex.Message;
         return "";
       }
+
+        return "";
     }
   }
 }
