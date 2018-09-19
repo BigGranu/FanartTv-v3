@@ -1,0 +1,87 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>
+			netstandard1.4;netstandard1.5;netstandard1.6;netstandard2.0;
+			netcoreapp1.0;netcoreapp1.1;netcoreapp2.0;
+			net20;net35;net40;net45;net46;net47
+		</TargetFrameworks>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>BigGranu</Authors>
+		<Product>BigGranu.FanartTv</Product>
+		<PackageId>BigGranu.FanartTv</PackageId>
+		<AssemblyName>BigGranu.FanartTv</AssemblyName>
+		<PackageIconUrl></PackageIconUrl>
+		<Description>Test 45</Description>
+		<RootNamespace>BigGranu..FanartTv</RootNamespace>
+		<Version>1.1.1</Version>
+		<PackageTags>tag 1</PackageTags>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="TextFile1.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Help\Hilfe.txt">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+	</ItemGroup>
+
+	<!-- Net Standard -->
+	<PropertyGroup Condition="'$(TargetFramework)' == 'netstandard1.4'">
+		<DocumentationFile>bin\Debug\netstandard1.4\$(Product).xml</DocumentationFile>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)' == 'netstandard1.5'">
+		<DocumentationFile>bin\Debug\netstandard1.5\CoverArtArchive.xml</DocumentationFile>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)' == 'netstandard1.6'">
+		<DocumentationFile>bin\Debug\netstandard1.6\CoverArtArchive.xml</DocumentationFile>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+		<DocumentationFile>bin\Debug\netstandard2.0\CoverArtArchive.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<!-- Net Core -->
+	<PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp1.0'">
+		<DocumentationFile>bin\Debug\netcoreapp1.0\CoverArtArchive.xml</DocumentationFile>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp1.1'">
+		<DocumentationFile>bin\Debug\netcoreapp1.1\CoverArtArchive.xml</DocumentationFile>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
+		<DocumentationFile>bin\Debug\netcoreapp2.0\CoverArtArchive.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<!-- Net -->
+	<ItemGroup Condition="'$(TargetFramework)' == 'net45' OR '$(TargetFramework)' == 'net46' OR '$(TargetFramework)' == 'net47'">
+		<Reference Include="System.Net.Http" />
+	</ItemGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net20'">
+		<DefineConstants>WEB_REQUEST</DefineConstants>
+		<DocumentationFile>bin\Debug\net20\CoverArtArchive.xml</DocumentationFile>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net35'">
+		<DefineConstants>WEB_REQUEST</DefineConstants>
+		<DocumentationFile>bin\Debug\net35\CoverArtArchive.xml</DocumentationFile>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net40'">
+		<DefineConstants>WEB_REQUEST</DefineConstants>
+		<DocumentationFile>bin\Debug\net40\CoverArtArchive.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net45'">
+		<DocumentationFile>bin\Debug\net45\CoverArtArchive.xml</DocumentationFile>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net46'">
+		<DocumentationFile>bin\Debug\net46\CoverArtArchive.xml</DocumentationFile>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net47'">
+		<DocumentationFile>bin\Debug\net47\CoverArtArchive.xml</DocumentationFile>
+	</PropertyGroup>
+</Project>
