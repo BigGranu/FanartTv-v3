@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FanartTv", "FanartTv\FanartTv.csproj", "{520AF683-9B9D-43DD-A526-E047A84FEA9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BigGranu.FanartTv", "BigGranu.FanartTv\BigGranu.FanartTv.csproj", "{520AF683-9B9D-43DD-A526-E047A84FEA9F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D170024D-1CB0-461D-BFC5-0E40E4E702D5}"
 	ProjectSection(SolutionItems) = preProject
